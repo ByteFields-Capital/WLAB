@@ -1,0 +1,92 @@
+ARNC,Basic Materials,Aluminum
+AKG,Basic Materials,Gold
+AU,Basic Materials,Gold
+AUY,Basic Materials,Gold
+DRD,Basic Materials,Gold
+GFI,Basic Materials,Gold
+GOLD,Basic Materials,Gold
+GORO,Basic Materials,Gold
+HMY,Basic Materials,Gold
+MUX,Basic Materials,Gold
+NEM,Basic Materials,Gold
+OR,Basic Materials,Gold
+SA,Basic Materials,Gold
+SBGL,Basic Materials,Gold
+APA,Basic Materials,Independent Oil & Gas
+BRY,Basic Materials,Independent Oil & Gas
+CHK,Basic Materials,Independent Oil & Gas
+COG,Basic Materials,Independent Oil & Gas
+COP,Basic Materials,Independent Oil & Gas
+DNR,Basic Materials,Independent Oil & Gas
+PZG,Basic Materials,Industrial Metals & Minerals
+XOM,Basic Materials,Major Integrated Oil & Gas
+SD,Basic Materials,Oil & Gas Drilling & Exploration
+BHGE,Basic Materials,Oil & Gas Equipment & Services
+PRT,Basic Materials,Oil & Gas Equipment & Services
+BPL,Basic Materials,Oil & Gas Pipelines
+KMI,Basic Materials,Oil & Gas Pipelines
+MMP,Basic Materials,Oil & Gas Pipelines
+MPLX,Basic Materials,Oil & Gas Pipelines
+KRO,Basic Materials,Specialty Chemicals
+NUE,Basic Materials,Steel & Iron
+NIO,Consumer Goods,Auto Manufacturers - Major
+BUD,Consumer Goods,Beverages - Brewers
+TG,Consumer Goods,Rubber & Plastics
+PSEC,Financial,Asset Management
+ASHR,Financial,Exchange Traded Fund
+FCG,Financial,Exchange Traded Fund
+FENY,Financial,Exchange Traded Fund
+FMAT,Financial,Exchange Traded Fund
+FREL,Financial,Exchange Traded Fund
+FUTY,Financial,Exchange Traded Fund
+GDX,Financial,Exchange Traded Fund
+GDXJ,Financial,Exchange Traded Fund
+GLD,Financial,Exchange Traded Fund
+IAU,Financial,Exchange Traded Fund
+KWEB,Financial,Exchange Traded Fund
+MLPA,Financial,Exchange Traded Fund
+PPLT,Financial,Exchange Traded Fund
+RING,Financial,Exchange Traded Fund
+SGOL,Financial,Exchange Traded Fund
+SIVR,Financial,Exchange Traded Fund
+SLV,Financial,Exchange Traded Fund
+SLVP,Financial,Exchange Traded Fund
+VDE,Financial,Exchange Traded Fund
+VFH,Financial,Exchange Traded Fund
+VGT,Financial,Exchange Traded Fund
+VHT,Financial,Exchange Traded Fund
+VNQ,Financial,Exchange Traded Fund
+VNQI,Financial,Exchange Traded Fund
+VPU,Financial,Exchange Traded Fund
+VWO,Financial,Exchange Traded Fund
+VYM,Financial,Exchange Traded Fund
+NNN,Financial,REIT - Diversified
+OPI,Financial,REIT - Office
+CERC,Healthcare,Biotechnology
+MNKD,Healthcare,Biotechnology
+OPK,Healthcare,Biotechnology
+BHC,Healthcare,Drug Delivery
+BMY,Healthcare,Drug Manufacturers - Major
+ENDP,Healthcare,Drug Manufacturers - Other
+COLL,Healthcare,Drugs - Generic
+TOL,Industrial Goods,Residential Construction
+BT,N/A,N/A
+RDSB,N/A,N/A
+VGPMX,N/A,N/A
+GPS,Services,Apparel Stores
+ETM,Services,Broadcasting - Radio
+KSS,Services,Department Stores
+RAD,Services,Drug Stores
+KR,Services,Grocery Stores
+DHT,Services,Shipping
+NOK,Technology,Communication Equipment
+IBM,Technology,Information Technology Services
+TWTR,Technology,Internet Information Providers
+FIT,Technology,Scientific & Technical Instruments
+AUO,Technology,Semiconductor - Broad Line
+PXLW,Technology,Semiconductor - Integrated Circuits
+SEDG,Technology,Semiconductor - Specialized
+FTR,Technology,Telecom Services - Domestic
+T,Technology,Telecom Services - Domestic
+JE,Utilities,Diversified Utilities
+SPKE,Utilities,Electric Utilities

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>wlab.EOD-alerts.plist</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/wdavid/Desktop/Shoebox/Sync/WlabPro/bin/OSX/wlab.EOD-alerts.sh</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <!--  Weekdays are 1 - 5; Sunday is 0 and 7   -->
+    <array>
+        <dict>
+            <key>Weekday</key>
+            <integer>1</integer>
+            <key>Hour</key>
+            <integer>2</integer>
+            <key>Minute</key>
+            <integer>10</integer>
+        </dict>
+        <dict>
+            <key>Weekday</key>
+            <integer>2</integer>
+            <key>Hour</key>
+            <integer>2</integer>
+            <key>Minute</key>
+            <integer>10</integer>
+        </dict>
+        <dict>
+            <key>Weekday</key>
+            <integer>3</integer>
+            <key>Hour</key>
+            <integer>2</integer>
+            <key>Minute</key>
+            <integer>10</integer>
+        </dict>
+        <dict>
+            <key>Weekday</key>
+            <integer>4</integer>
+            <key>Hour</key>
+            <integer>2</integer>
+            <key>Minute</key>
+            <integer>10</integer>
+        </dict>
+        <dict>
+            <key>Weekday</key>
+            <integer>5</integer>
+            <key>Hour</key>
+            <integer>2</integer>
+            <key>Minute</key>
+            <integer>10</integer>
+        </dict>
+    </array>
+
+</dict>
+</plist>

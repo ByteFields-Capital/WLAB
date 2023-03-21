@@ -1,0 +1,194 @@
+Services,Auto Parts Stores
+AA,Basic Materials,Aluminum
+ARNC,Basic Materials,Aluminum
+CENX,Basic Materials,Aluminum
+HBM,Basic Materials,Copper
+AEM,Basic Materials,Gold
+GOLD,Basic Materials,Gold
+NEM,Basic Materials,Gold
+SBGL,Basic Materials,Gold, Other
+AKG,Basic Materials,Gold
+AU,Basic Materials,Gold
+AUY,Basic Materials,Gold
+DRD,Basic Materials,Gold
+GFI,Basic Materials,Gold
+GG,Basic Materials,Gold
+GORO,Basic Materials,Gold
+HMY,Basic Materials,Gold
+IAG,Basic Materials,Gold
+MUX,Basic Materials,Gold
+NG,Basic Materials,Gold
+OR,Basic Materials,Gold
+PGLC,Basic Materials,Gold
+SA,Basic Materials,Gold
+SAND,Basic Materials,Gold
+BRY,Basic Materials,Independent Oil & Gas
+APA,Basic Materials,Independent Oil & Gas
+CHK,Basic Materials,Independent Oil & Gas
+COG,Basic Materials,Independent Oil & Gas
+COP,Basic Materials,Independent Oil & Gas
+CRC,Basic Materials,Independent Oil & Gas
+DNR,Basic Materials,Independent Oil & Gas
+SWN,Basic Materials,Independent Oil & Gas
+ARCH,Basic Materials,Industrial Metals & Minerals
+PZG,Basic Materials,Industrial Metals & Minerals
+XOM,Basic Materials,Major Integrated Oil & Gas
+SD,Basic Materials,Oil & Gas Drilling & Exploration
+PRT,Basic Materials,Oil & Gas Equipment & Services
+BHGE,Basic Materials,Oil & Gas Equipment & Services
+BPL,Basic Materials,Oil & Gas Pipelines
+CQP,Basic Materials,Oil & Gas Pipelines
+KMI,Basic Materials,Oil & Gas Pipelines
+MMP,Basic Materials,Oil & Gas Pipelines
+MPLX,Basic Materials,Oil & Gas Pipelines
+KRO,Basic Materials,Specialty Chemicals
+NUE,Basic Materials,Steel & Iron
+NIO,Consumer Goods,Auto Manufacturers - Major
+BUD,Consumer Goods,Beverages - Brewers
+KO,Consumer Goods,Beverages - Soft Drinks
+AAPL,Consumer Goods,Electronic Equipment
+AGRO,Consumer Goods,Farm Products
+LW,Consumer Goods,Food - Major Diversified
+K,Consumer Goods,Processed & Packaged Goods
+THO,Consumer Goods,Recreational Vehicles
+TG,Consumer Goods,Rubber & Plastics
+NAV,Consumer Goods,Trucks & Other Vehicles
+Services,Drugs Wholesale
+AFL,Financial,Accident & Health Insurance
+AIZ,Financial,Accident & Health Insurance
+APAM,Financial,Asset Management
+PSEC,Financial,Asset Management
+GDOT,Financial,Credit Services
+AGG,Financial,Exchange Traded Fund
+AGQ,Financial,Exchange Traded Fund
+ASHR,Financial,Exchange Traded Fund
+FENY,Financial,Exchange Traded Fund
+FMAT,Financial,Exchange Traded Fund
+FREL,Financial,Exchange Traded Fund
+FUTY,Financial,Exchange Traded Fund
+IHE,Financial,Exchange Traded Fund
+IHI,Financial,Exchange Traded Fund
+ITB,Financial,Exchange Traded Fund
+KWEB,Financial,Exchange Traded Fund
+MLPA,Financial,Exchange Traded Fund
+PPLT,Financial,Exchange Traded Fund
+RING,Financial,Exchange Traded Fund
+SGOL,Financial,Exchange Traded Fund
+SIVR,Financial,Exchange Traded Fund
+SLVP,Financial,Exchange Traded Fund
+SPY,Financial,Exchange Traded Fund
+VDE,Financial,Exchange Traded Fund
+VFH,Financial,Exchange Traded Fund
+VGT,Financial,Exchange Traded Fund
+VHT,Financial,Exchange Traded Fund
+VNQ,Financial,Exchange Traded Fund
+VNQI,Financial,Exchange Traded Fund
+VPU,Financial,Exchange Traded Fund
+VWO,Financial,Exchange Traded Fund
+VYM,Financial,Exchange Traded Fund
+XLK,Financial,Exchange Traded Fund
+XLU,Financial,Exchange Traded Fund
+FCG,Financial,Exchange Traded Fund
+GDX,Financial,Exchange Traded Fund
+GDXJ,Financial,Exchange Traded Fund
+GLD,Financial,Exchange Traded Fund
+IAU,Financial,Exchange Traded Fund
+SLV,Financial,Exchange Traded Fund
+AON,Financial,Insurance Brokers
+AFG,Financial,Property & Casualty Insurance
+AFSI,Financial,Property & Casualty Insurance
+AHL,Financial,Property & Casualty Insurance
+TRV,Financial,Property & Casualty Insurance
+LGIH,Financial,Real Estate Development
+CFG,Financial,Regional - Mid-Atlantic Banks
+NNN,Financial,REIT - Diversified
+OPI,Financial,REIT - Office
+GOV,Financial,REIT - Office
+AGEN,Healthcare,Biotechnology
+AGIO,Healthcare,Biotechnology
+AIMT,Healthcare,Biotechnology
+CERC,Healthcare,Biotechnology
+OPK,Healthcare,Biotechnology
+BCRX,Healthcare,Biotechnology
+FOLD,Healthcare,Biotechnology
+MBRX,Healthcare,Biotechnology
+MNKD,Healthcare,Biotechnology
+OTIC,Healthcare,Biotechnology
+PDLI,Healthcare,Biotechnology
+BHC,Healthcare,Drug Delivery
+VRX,Healthcare,Drug Delivery
+BMY,Healthcare,Drug Manufacturers - Major
+IPXL,Healthcare,Drug Manufacturers - Major
+ENDP,Healthcare,Drug Manufacturers - Other
+AGN,Healthcare,Drugs - Generic
+AGRX,Healthcare,Drugs - Generic
+COLL,Healthcare,Drugs - Generic
+MDXG,Healthcare,Medical Appliances & Equipment
+ZBH,Healthcare,Medical Appliances & Equipment
+BIOL,Healthcare,Medical Instruments & Supplies
+AXDX,Healthcare,Medical Laboratories & Research
+AAC,Healthcare,Specialized Health Services
+RAVN,Industrial Goods,Diversified Machinery
+AGCO,Industrial Goods,Farm & Construction Machinery
+MTW,Industrial Goods,Farm & Construction Machinery
+UFPI,Industrial Goods,Lumber
+TOL,Industrial Goods,Residential Construction
+WM,Industrial Goods,Waste Management
+AAAP,N/A,N/A
+GW,N/A,N/A
+IRA,N/A,N/A
+RDSB,N/A,N/A
+VGPMX,N/A,N/A
+Technology,Semiconductor - Integrated Circuits
+GPS,Services,Apparel Stores
+RUSHA,Services,Auto Dealerships
+ETM,Services,Broadcasting - Radio
+NWS,Services,Broadcasting - TV
+KSS,Services,Department Stores
+RAD,Services,Drug Stores
+KR,Services,Grocery Stores
+SFM,Services,Grocery Stores
+NL,Services,Industrial Equipment Wholesale
+WTW,Services,Personal Services
+MDP,Services,Publishing - Periodicals
+CMG,Services,Restaurants
+DHT,Services,Shipping
+SHAK,Services,Specialty Eateries
+BNED,Services,Specialty Retail
+WDAY,Technology,Application Software
+NOK,Technology,Communication Equipment
+BT,Technology,Diversified Communication Services
+ANET,Technology,Diversified Computer Systems
+HMNY,Technology,Information Technology Services
+IBM,Technology,Information Technology Services
+AKAM,Technology,Internet Information Providers
+FB,Technology,Internet Information Providers
+LLNW,Technology,Internet Information Providers
+TWTR,Technology,Internet Information Providers
+QNST,Technology,Internet Software & Services
+FIT,Technology,Scientific & Technical Instruments
+FLIR,Technology,Scientific & Technical Instruments
+TDY,Technology,Scientific & Technical Instruments
+AMD,Technology,Semiconductor - Broad Line
+AUO,Technology,Semiconductor - Broad Line
+AAOI,Technology,Semiconductor - Integrated Circuits
+ADI,Technology,Semiconductor - Integrated Circuits
+INTT,Technology,Semiconductor - Integrated Circuits
+PXLW,Technology,Semiconductor - Integrated Circuits
+JASO,Technology,Semiconductor - Specialized
+NVDA,Technology,Semiconductor - Specialized
+SEDG,Technology,Semiconductor - Specialized
+ICHR,Technology,Semiconductor Equipment & Materials
+OLED,Technology,Semiconductor Equipment & Materials
+SNPS,Technology,Semiconductor Equipment & Materials
+T,Technology,Telecom Services - Domestic
+FTR,Technology,Telecom Services - Domestic
+WIN,Technology,Telecom Services - Domestic
+EXC,Utilities,Diversified Utilities
+JE,Utilities,Diversified Utilities
+SO,Utilities,Electric Utilities, Wood Production
+AES,Utilities,Electric Utilities
+ELP,Utilities,Electric Utilities
+FE,Utilities,Electric Utilities
+SPKE,Utilities,Electric Utilities
+SBS,Utilities,Water Utilities

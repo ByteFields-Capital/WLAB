@@ -1,0 +1,249 @@
+: << 'COMMENT'
+IMPORTANT !!!!
+# CUrrently  quote data is very limited !!!!
+see funtions for details
+
+USAGE:  alerts.sh $R1 $R2 watchlist.wlab
+	  ALERT={price=, date=....} in the watchlist.wlab , runs on OSX 
+		TODO:  
+      port to AWS sh script : https://github.com/gkrizek/bash-lambda-layer
+		  price alert svc in the cloud - lambada or GCP - how it works wtih DA - ???
+
+all data is saved in  
+  TMPFILE=/tmp/32uwgefi82h4f9fnc;
+  DEBUG_FILE=/tmp/alerts.sh.debug
+  ALERT_FILE="/tmp/alert.msg"
+ 
+COMMENT
+
+source $WLAB_HOME/bin/functions_inc.sh
+FILES="$*"
+echo "$FILES"
+TMPFILE=/tmp/32uwgefi82h4f9fnc
+printf "\n####################   %s   ########################\n\n" "$(date)" >> /tmp/alerts.sh.debug
+rm -f /tmp/alert.msg
+
+
+
+#  Test it !
+# echo  'ALERT;{ "condition": "PRICE_ABOVE", "ticker": "NOK", "price" : 10 , "volume" : 0 , "expiration" : "2019-07-18","note" : " COMMENT ", "date" : "2019-10-18" } 
+# ALERT;{ "condition": "PRICE_BELOW", "ticker": "NOK", "price" : 3 , "volume" : 0 , "expiration" : "2019-06-19","note" : " ReEnter! Start DollarAverage", "date" : "2019-08-29" } 
+# ALERT;{ "condition": "PRICE_ABOVE", "ticker": "NOK", "price" : 3 , "volume" : 0 , "expiration" : "2019-07-18","note" : " COMMENT ", "date" : "2019-10-18" } 
+# ALERT;{ "condition": "PRICE_BELOW", "ticker": "NOK", "price" : 10 , "volume" : 0 , "expiration" : "2019-06-19","note" : " ReEnter! Start DollarAverage", "date" : "2019-08-29" } 
+# ALERT;{ "condition": "VOLUME_ABOVE", "ticker": "NOK", "price" : 0 , "volume" : 9999999990 , "expiration" : "2019-06-19","note" : " ReEnter! Start DollarAverage", "date" : "2019-08-29" }
+# ALERT;{ "condition": "VOLUME_ABOVE", "ticker": "NOK", "price" : 0 , "volume" : 200000, "expiration" : "2019-06-19","note" : " ReEnter! Start DollarAverage", "date" : "2019-08-29" } '  | \
+awk -F\; 'BEGIN {
+
+	#  symbol,open,high,low,price,volume,latestDay,previousClose,change,changePercent
+  #  awk {printf "%-30s = %s\n",$1,$3}
+
+  symbol                         = 1
+  open                           = 2
+  high                           = 3
+  low                            = 4
+  price                          = 5
+  volume                         = 6
+  latestDay                      = 7
+  previousClose                  = 8
+  change                         = 9
+  changePercent                  = 10
+  condition                      = 11
+  expiration                     = 12
+  note                           = 13
+  FieldNames[symbol]             = "symbol";
+  FieldNames[open]               = "open";
+  FieldNames[high]               = "high";
+  FieldNames[low]                = "low";
+  FieldNames[price]              = "price";
+  FieldNames[volume]             = "volume";
+  FieldNames[latestDay]          = "latestDay";
+  FieldNames[previousClose]      = "previousClose";
+  FieldNames[change]             = "change";
+  FieldNames[changePercent]      = "changePercent";
+  FieldNames[condition]          = "condition";
+  FieldNames[expiration]         = "expiration";
+  FieldNames[note]               = "note";
+
+  TMPFILE="/tmp/32uwgefi82h4f9fnc";
+  DEBUG_FILE="/tmp/alerts.sh.debug";
+  ALERT_FILE="/tmp/alert.msg"
+  #fireAlert("111 " , " quoteX", " cond " ," alertX")   
+
+  #dprint("Process " "test");
+   
+}
+$1=="ALERT" {
+
+  dprint(" >>>> Processing alert "$2);
+  getAlert($2);
+  dprint(alert[symbol] " ---alert[price] = "alert[price]);
+  getQuote(alert[symbol]);
+  dprint(quote[symbol] "--  quote[high] =  " quote[high]);
+
+  dprint("alert[volume] = "alert[volume]"  ;  quote[volume] = " quote[volume]);
+
+
+  if ( alert[condition] == "PRICE_BELOW"  &&  alert[price] >= quote[low] ) {
+    dprint("# "FILENAME": in $1==ALERT PRICE_BELOW");
+    fireAlert( alert[symbol], alert[condition],  alert[price], quote[low])
+  }
+  else if ( alert[condition] == "PRICE_ABOVE"  &&  alert[price] <= quote[high] ) {
+    dprint("# "FILENAME": in $1==ALERT PRICE_ABOVE");
+    fireAlert( alert[symbol], alert[condition],  alert[price], quote[low])
+  }
+
+  else if ( alert[condition] == "VOLUME_BELOW"  &&  alert[volume] >= quote[volume] ) {
+    dprint("# "FILENAME": in $1==ALERT VOLUME_BELOW");
+    fireAlert( alert[symbol], alert[condition],  alert[price], quote[low])
+  }
+
+  else if ( alert[condition] == "VOLUME_ABOVE"  &&  alert[volume] <= quote[volume] ) {
+    dprint("# "FILENAME": in ALERT  VOLUME_ABOVE");
+    fireAlert( alert[symbol], alert[condition],  alert[price], quote[low])
+  }
+  else dprint("# "FILENAME": !!! NO ALERT CONDITION MET  !!!! ");
+  dprint(" ==========");
+}
+
+#just print
+function fireAlert_p( symbolX, cond,  alertX, quoteX)
+{   
+  #print "#TRACE: in fireAlert"
+  print   symbolX " : " quoteX" " cond " " alertX
+}
+
+#OSX
+function fireAlert( symbolX, cond,  alertX, quoteX)
+{   
+  dprint("#TRACE: in fireAlert");
+  dprint(symbolX " : " quoteX" " cond " " alertX );
+  printf( "osascript -e \x27 display alert \"WLAB ALERT\"  message \"%s %s %s %s \" \x27 &\n", symbolX ,quoteX, cond, alertX ) >> "/tmp/alert.msg"
+}
+
+function getQuote_v02(symbol)
+{
+	# getQuoteCmd="curl -s \"https://api.iextrading.com/1.0/stock/market/previous/batch?symbols="symbol"&types=quote\" | jq -r \x27 .[] | [ .symbol, .low, .high, .volume, .vwap ]  | join(\";\") \x27 " 
+  # getQuoteCmd="curl -s \"https://cloud.iexapis.com/stable/stock/"symbol"/quote?token=pk_007e296b90f14627b5615b8eeb58a2a7\" | jq -r \x27 [ .symbol, .low, .high, .latestVolume, .latestPrice ]  | join(\";\") \x27 " 
+  dprint( "getQuoteCmd = "getQuoteCmd );
+  getQuoteCmd |  getline line
+  close(getQuoteCmd)
+  dprint(line);
+  split(line,quote,";");
+  dprint( "### quote begin #### ") ; for (i in quote)   dprint("### quote["FieldNames[i]"]= " quote[i]); dprint( "### quote end #### ") ;
+}
+# 
+ function getQuote(ticker)
+{
+  #getQuoteCmd="cat  /tmp/11 | awk -F\, \x27 { printf(\"%s;;%s;%s;%s;%s\\n\" , $"symbol", $"high", $"low", $"price", $"volume" ) }  \x27 " 
+  #getQuoteCmd="	sleep 12s; curl -s \"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol="symbol"&apikey=8E409AF7G8ZJZA3F&datatype=csv\"  | tail -1 | awk \x27 { printf(\"%s;;%s;%s;%s;%s\\n\" , $"symbol", $"high", $"low", $"price", $"volume" ) }  \x27 " 
+ 
+  getQuoteCmd=" /Users/wdavid/Desktop/Shoebox/Sync/WlabPro/bin/getQuoteCmd.sh "ticker" | awk -F\, \x27 { printf(\"%s;;%s;%s;%s;%s\\n\" , $"symbol", $"high", $"low", $"price", $"volume" ) }  \x27 " 
+  dprint( "getQuoteCmd = "getQuoteCmd );
+  getQuoteCmd | getline line
+  close(getQuoteCmd)
+  dprint("QUOTE  =  "line)
+   split(line,quote,";");
+  dprint( "### quote begin #### ") ; for (i in quote)   dprint("### quote["FieldNames[i]"]= " quote[i]); dprint( "### quote end #### ") ;
+}
+
+function getAlert(json)
+{
+  getAlertCmd="echo \x27"json"\x27 |  jq -r \x27 . | [  .ticker ,\"\" ,\"\",\"\", .price, .volume, \"\",\"\",\"\",\"\", .condition, .expiration, .note ]  | join(\";\") \x27 ";
+  dprint("getAlertCmd = \""getAlertCmd"\"");
+  getAlertCmd |  getline line
+  close(getAlertCmd)
+  dprint("ALERT  =  "line)
+  split(line,alert,";")
+  dprint( "### alert begin #### ") ; for (i in alert)   dprint("### alert["FieldNames[i]"]= " alert[i]); dprint( "### quoalertte end #### ") ;
+}
+
+
+function dprint(string)
+{
+  print "DP## "string >> DEBUG_FILE;
+  #print "DP## "string ;
+}
+
+'  $FILES
+
+#~/Desktop/Shoebox/Sync/WlabPro/_Trades/watchlist.wlab
+#cat /tmp/alert.msg ; exit
+
+grep 'ALERT\|QUOTE' /tmp/alerts.sh.debug
+
+if [ ! -f /tmp/alert.msg ]; then
+  echo "No alerts"
+else
+  bash /tmp/alert.msg
+fi
+
+exit
+
+
+while read line
+do  
+  echo $line
+done < /tmp/alert.msg 
+
+exit
+#  osascript -e 'display alert "WLAB ALERT"  message "$TT just hit $PP "' 
+
+
+awk -F\;  'BEGIN {
+    TMPFILE=/tmp/qq;
+
+     system("date > "TMPFILE);
+    "cat  "TMPFILE | getline current_time
+      close("cat")
+    print "Report printed on " current_time
+}'
+
+exit
+ echo $TMPFILE | awk '{  QQ=system("ls -l /tmp/aa"); print QQ; } '
+
+ exit
+echo $TMPFILE | awk '{  ss="ls ~/ > "$1"-1";  system(ss) ; QQ=system("ls -l /tmp/aa"); print QQ; } '
+
+
+
+BEGIN {
+     "date" | getline current_time
+     close("date")
+     print "Report printed on " current_time
+}
+echo '
+
+ALERT;{ "what": "ALERT", "symbol": "DHT", "price" : 5.6 , "volume" : 3000000 , "expiration" : "2019-11-29" , "note" : " Enter! Satrt DollarAverage", "date" : "2019-04-29" } 
+
+' |  awk -F\;  '$1=="ALERT" {print $2}' 
+
+
+ALERT="{ "what": "ALERT", "symbol": "DHT", "price" : 5.6 , "volume" : 3000000 , "expiration" : "2019-11-29" , "note" : " Enter! Satrt DollarAverage", "date" : "2019-04-29" } "
+
+TICKER= echo $ALERT |  jq -r ' .symbol'
+echo $ALERT |  jq -r ' .symbol' 
+
+get_last_trading_day_quote  $TICKER
+ALERT=$( echo $ALERT  |  jq -r ' . | [.expiration, .volume, .price[] ]  | join(";") ' )
+QUTOTE=$
+
+get_last_trading_day_quote  TICKER  | jq -r '.[].close'    [open,close,high,low,volume]
+{
+
+awk -F\; '{print $1; print$2;
+    for(i=3;i<=NF;i++){ print $i }
+}'
+
+
+
+    printf "display alert \"WLAB ALERT\"  message \"%s just hit %s\"\n" AMD 24 > ${TMPFILE} 
+    osascript ${TMPFILE} 	
+exit
+
+#get all dfata echo "data" | awk processor 
+cat watchlist.wlab | awk -F\;  '$1=="ALERT" {print $2}' | jq -r ' . | [.expiration, .volume, .price[] ]  | @csv ' 
+cat watchlist.wlab | awk -F\;  '$1=="ALERT" {print $2}' | jq -r ' . | [.expiration, .volume, .price[] ]  | join(";") ' | awk '...'
+
+ALERT;{ "what": "ALERT", "symbol": "DHT", "price" : [ 5.5, 5.6] , "volume" : 3000000 , "expiration" : "2019-11-29" , "note" : " Enter! Satrt DollarAverage", "date" : "2019-04-29" } 
+
+exit 
